@@ -66,7 +66,7 @@ home folder and run the make command.
 If you don't get any errors while compiling and linking the example program, everything should be built/installed correctly.
 
 ## Uninstall
-If you make changes to the script, and/or you have run this installer script before, **it is suggested that you run the uninstall script** before re-running the installer script. Navigate to the location of the uninstall script and run the followint command:
+If you make changes to the script, and/or you have run this installer script before, **it is suggested that you run the uninstall script** before re-running the installer script. Navigate to the location of the uninstall script and run the following command:
 
     sh ./rmvlib_uninstall.sh
     
