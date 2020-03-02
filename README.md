@@ -55,28 +55,31 @@ Execute the install script, in a linux terminal, from wherever you have placed t
 
     sh ./rmvlib_install.sh
 
-The script will as for root permissions to install necessary repositories and packages.
+The script will ask for root permissions to install neccessary repositories and packages.
 
-After the script finishes, navigate to the the following location in your
-home folder and run the make command.
+After the script finishes, and before you can build the example program, ***reboot your system or logout of your user and log back in***.  This will ensure that the new $JAGPATH environment variable is loaded from /etc/environment, allowing the current Makefile.config file to properly build the example program.  After logout/reboot, navigate to the following location in your home folder and run the make command.
 
     cd ~/Jaguar/example_programs/generic_example
     make
     
-If you don't get any errors while compiling and linking the example program, everything should be built/installed correctly.
+If you don't get any errors while compiling and linking the example program, everything should be built/installed correctly for the Jaguar development environment.
 
 ## Uninstall
-If you make changes to the script, and/or you have run this installer script before, **it is suggested that you run the uninstall script** before re-running the installer script. Navigate to the location of the uninstall script and run the following command:
+If you make changes to the script, and/or you have run this installer script before, **you should run the uninstall script** before re-running the installer script. Navigate to the location of the uninstall script and run the following command:
 
     sh ./rmvlib_uninstall.sh
     
+**IMPORTANT**
+
+Because the uninstall script completely erases the Jaguar folder in your home folder, **do not start new projects inside the ~/Jaguar folder**. Any code/assets will be erased if your projects are in this folder.  The way the development environment is isntall allows the user to build from anywhere on their system. Pick another location other than the ~/Jaguar to do your development in to avoid losing your work.
+    
 ### Debugging Scripts
-If you run into a problems, use the following command instead to dump the output of the script as it runs.  You can then review the log to see where it is getting stuck.  **Be sure to run the uninstaller script before running the following command**.
+If you run into problems running the script, use the following command instead to dump the output of the script as it runs.  You can then review the log to see where it is getting stuck.  **Be sure to run the uninstaller script before running the following command**.
 
     sh ./rmvlib_install.sh 2>&1 build.log
 ________________
 ## Notes
-
+If you examine the install script, you will see some slight modifications to specific source files in the Remover's Libaray (RMVLIB). These small alterations are needed to get RMAC to properly compile these specific files in RMVLIB. These modifications are a good first place to check if the script breaks in the future.
 ________________
 ________________
 

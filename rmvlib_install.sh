@@ -54,14 +54,6 @@ cd rmac
 
 sed -i '/_attr = cursect | D/c\*a_attr = DEFINED;' expr.c #update line 421 with correct code
 
-#manual fix to make sure that sound.o in rmvlib builds correctly.  Removing else check around switch/case statements
-sed -i '/Set equated flag/aDeleteFromhere' object.c
-sed -i '/DeleteFromhere/,+3d' object.c
-sed -i '/Set equated flag/a}' object.c
-sed -i '/BSS : z = 0x08000000/aDeleteFromhere' object.c
-sed -i '/DeleteFromhere/,+2d' object.c
-sed -i '/BSS : z = 0x08000000/a}' object.c
-
 make
 
 cd $HOME/Jaguar/src
