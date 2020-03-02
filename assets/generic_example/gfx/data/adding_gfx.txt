@@ -1,0 +1,16 @@
+ In order to add graphics to a project, an entry for your graphics  file should be placed in the 
+ 
+ /gfx/data/gfx_data.s
+ 
+ And should follow this convention for unpacked data:
+ 
+    gfx_data  _LABLE,"/path/to/file.rgb"
+    
+And this convention if it is packed:
+    
+    gfx_data_packed _LABLE,"/path/to/file.lz77"
+    
+ ----------------------
+ NOTE:
+ 
+ Additional '.s" files can be added for better organization, as long as they are placed in the same folder as the 'gfx_data.s' file
