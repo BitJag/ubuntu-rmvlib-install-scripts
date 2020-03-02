@@ -7,7 +7,8 @@ The only updates you can expect from me for these scripts are if and when I feel
 
 # RMAC/JLINKER/JLIBC/RMVLIB Installer Script
 (rmvlib_installer.sh &  rmvlib_uninstaller.sh)
-##About
+
+## About
 This script will install a working Atari Jaguar development environment, based on JLIBC and the Remover's Library, on a linux machine with access to the Ubuntu repositories.
 
 ________________
