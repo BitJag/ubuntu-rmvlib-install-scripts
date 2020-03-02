@@ -60,7 +60,7 @@ The script will as for root permissions to install necessary repositories and pa
 After the script finishes, navigate to the the following location in your
 home folder and run the make command.
 
-    cd ~/Jaguar/example_programs/example1
+    cd ~/Jaguar/example_programs/generic_example
     make
     
 If you don't get any errors while compiling and linking the example program, everything should be built/installed correctly.
@@ -76,18 +76,13 @@ If you run into a problems, use the following command instead to dump the output
     sh ./rmvlib_install.sh 2>&1 build.log
 ________________
 ## Notes
-JLINKER requires at least ocaml version 4.08.0 in order to build.  This script downloads the source for this version of ocaml builds and installs.  It then removes ocaml completely. If you had ocaml installed before running this script, you may need to reinstall ocaml afterwards, or alter the script to avoid installing/uninstall ocaml during execution.
 
-The example program is a reworked version of Seb's example which can be found here. 
-
-https://github.com/sbriais/jagexamples
-
-Notable changes were to *MakeFile*, which were just redifining paths to point to RMAC, JLINKER, and the Atari Mint Cross Compiler.
 ________________
 ________________
 
-#Additional Jaguar Development Binaries Linux Installer
-(additional_jaguar_development_binaries_installer.sh)
+# Additional Jaguar Development Binaries Linux Installer
+(additional_tools_install.sh)
+
 ## About
 This script installs additional binaries to accomadate Atari Jaguar development on Linux.  **This script is meant to be run after the rmac/jlinker/jlibc/rmvlib installation script and will fail otherwise**.
 ________________
@@ -112,7 +107,7 @@ source: http://s390174849.online.de/ray.tscc.de/files/lz77_v13.zip
 ### jag-image-converter
 Used to convert tga,png,gif,etc... formats to formats compatible with the Remover's library and the Jaguar.
 
-source: http://removers.free.fr/softs/archives/converter-0.1.9.tar.gz
+source: https://github.com/sbriais/jconverter
 ________________
 ## Installing
 To run this script, open up a terminal, navigate to the location of the script, and then run the script with the following command:
@@ -133,4 +128,4 @@ After installation, you may want to invoke these programs by name from the termi
     
 ________________
 ## Notes
-The Seb's jag-image-converter requires ocaml version 4.05.0 in order to build.  As of 2/26/2020, it will fail to build with any newer version of ocaml installed from source or the Ubuntu repositories.  In the future you may need to build ocaml version 4.05.0 from source in order to properly build this program.
+Seb's image coverter (jcoverter) is the only application not built from source.  Instead a linux binary is pulled from source git repository.
