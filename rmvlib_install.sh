@@ -52,7 +52,7 @@ echo  "\n${RED}Building RMAC${NC}\n"
 
 cd rmac
 
-sed -i '/_attr = cursect | D/c\*a_attr = DEFINED;' expr.c #update line 421 with correct code
+sed -i '/_attr = cursect | D/c\*a_attr = DEFINED;' expr.c #manual alteration to rmac to make it properly compile display.s, sound.s and paula.s in rmvlib.
 
 make
 
