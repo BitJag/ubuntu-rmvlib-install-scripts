@@ -5,7 +5,7 @@ There are no guarantees provided when you use this script.  These scripts will p
 
 The only updates you can expect from me for these scripts are if and when I feel that I need to update them, but feel free to leave an issue in the tracker. I will do my best to help. Or, feel free to alter the script for your own needs.
 
-# RMAC/JLINKER/JLIBC/RMVLIB Installer Script
+# RMAC/RLN/JLIBC/RMVLIB Installer Script
 (rmvlib_installer.sh &  rmvlib_uninstaller.sh)
 
 ## About
@@ -26,10 +26,10 @@ A modern version of Atari's old Madmac assembler. Created by Reboot.
 
 source: http://shamusworld.gotdns.org/git/rmac
 
-### JLINKER
-A modern version of Atari's old ALN linker. Created by Seb.
+### RLN
+A modern version of Atari's old ALN linker. Created by Reboot.
 
-source: https://github.com/sbriais/jlinker
+source: http://shamusworld.gotdns.org/git/rln
 
 ### JLIBC
 The Remover's standard C library.
