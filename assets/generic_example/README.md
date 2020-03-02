@@ -1,6 +1,6 @@
-#Generic Example Program
+# Generic Example Program
 
-##About
+## About
 
 A generic example to test tool chain to make sure the user can build a Jaguar program.
 
@@ -18,11 +18,11 @@ The program also show examples of the following:
 
 * Setup and reading of joystick.
 
-##Licensing
-###Graphics
+## Licensing
+### Graphics
 Graphics assets are Copyright William Thorup 2020
 
-###Music
+### Music
 musix-retrospective.mod
 https://modarchive.org/index.php?request=view_by_moduleid&query=65133
 Licensed under the Public Domain license
