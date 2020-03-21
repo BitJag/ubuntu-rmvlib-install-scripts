@@ -132,3 +132,5 @@ After installation, you may want to invoke these programs by name from the termi
 ________________
 ## Notes
 Seb's image coverter (jcoverter) is the only application not built from source.  Instead a linux binary is pulled from source git repository.
+
+If you are having trouble using JCP from commandline after running the link_binaries.sh script, try running the command with sudo. For exampele, to reset the Jaguar use "sudo jcp -r" (without quotes).  Typically you shouldn't need sudo to do this, as there is a rules file that is created when JCP is linked to /usr/bin, but it is possible that the rule implemented doesn't cover all variations of the skunkboard out there.  If you find yourself in this situation, leave an issue in the issue tracker here on github, and we can quickly resolve this issue.
