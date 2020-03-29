@@ -33,6 +33,9 @@ cd $HOME/Jaguar/
 
 echo  "\n${RED}Setting Environment Variable JAGPATH${NC}\n"
 
+
+export JAGPATH=/home/$USER/Jaguar #export for the session the script is running so libraries install correctly
+
 echo "export JAGPATH=/home/$USER/Jaguar" | sudo tee -a /etc/environment 
 
 #download tools
