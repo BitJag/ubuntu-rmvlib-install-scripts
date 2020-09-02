@@ -95,6 +95,7 @@ echo "\n"
 sleep 1
 cd ./jcp
 make
+sudo sh -c \"echo 'SUBSYSTEM==\"usb\", ATTRS{idProduct}==\"7200\", ATTRS{idVendor}==\"04b4\", MODE=\"0666\"' >> /etc/udev/rules.d/64-skunk.rules\" #allows jcp to run without sudo
 cd ..
 
 
@@ -145,7 +146,6 @@ echo "sudo ln -s $HOME/Jaguar/bin/jag-image-converter /usr/bin/jag-image-convert
 echo "sudo chmod +x /usr/bin/virtualjaguar" >> ./bin/link_binaries.sh
 echo "sudo chmod +x /usr/bin/jcp" >> ./bin/link_binaries.sh
 #add rules file that allows the user to invoke jcp without sudo/root permissions.  Confirmed to work with v2 skunkboards and SillyVenture skunkboards
-echo "sudo sh -c \"echo 'SUBSYSTEM==\"usb\", ATTRS{idProduct}==\"7200\", ATTRS{idVendor}==\"04b4\", MODE=\"0666\"' >> /etc/udev/rules.d/64-skunk.rules\"" >> ./bin/link_binaries.sh
 echo "sudo chmod +x /usr/bin/lz77" >> ./bin/link_binaries.sh
 echo "sudo chmod +x /usr/bin/jag-image-converter" >> ./bin/link_binaries.sh
 
