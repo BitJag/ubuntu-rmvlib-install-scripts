@@ -64,6 +64,11 @@ After the script finishes, and before you can build the example program, ***rebo
     
 If you don't get any errors while compiling and linking the example program, everything should be built/installed correctly for the Jaguar development environment.
 
+## Updating
+rmvlib_update.sh will remove the source trees for RMAC, RLN, JLIBC and RMVLIB, download and rebuild them with out removing any other files/folders you may have added to the default toolchain directory, located in your home folder in the Jaguar folder.  Make sure you download the latest copy of this repository, as the update may rely on files in the assets directory of this repository.
+
+    sh ./rmvlib_update.sh
+
 ## Uninstall
 If you make changes to the script, and/or you have run this installer script before, **you should run the uninstall script** before re-running the installer script. Navigate to the location of the uninstall script and run the following command:
 
@@ -71,7 +76,7 @@ If you make changes to the script, and/or you have run this installer script bef
     
 **IMPORTANT**
 
-Because the uninstall script completely erases the Jaguar folder in your home folder, **do not start new projects inside the ~/Jaguar folder**. Any code/assets will be erased if your projects are in this folder.  The way the development environment is isntall allows the user to build from anywhere on their system. Pick another location other than the ~/Jaguar to do your development in to avoid losing your work.
+Because the uninstall script completely erases the Jaguar folder in your home folder, **be sure that you have backuped up any code/files/folders that you may have added while using this toolchain**. Any code/assets will be erased if your projects are in this folder.  The way the development environment is isntall allows the user to build from anywhere on their system. Pick another location other than the ~/Jaguar to do your development in to avoid losing your work.
     
 ### Debugging Scripts
 If you run into problems running the script, use the following command instead to dump the output of the script as it runs.  You can then review the log to see where it is getting stuck.  **Be sure to run the uninstaller script before running the following command**.
