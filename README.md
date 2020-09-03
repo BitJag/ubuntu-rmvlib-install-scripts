@@ -64,6 +64,11 @@ After the script finishes, and before you can build the example program, ***rebo
     
 If you don't get any errors while compiling and linking the example program, everything should be built/installed correctly for the Jaguar development environment.
 
+If you want to test more example programs.  Seb of the Removers has a repository (linked below) with all of his example files showcasing most of the functions in the Remover's Library.  In order to properly build these examples with the development environment setup by this script, you will need to adjust the makefile's slightly.  Make sure that paths are pointing to the correct bianaries in the Jaguar/bin folder, and the inlclude and lib folders locating in Jaguar/lib
+
+source: https://github.com/theRemovers/jagexamples
+
+
 ## Updating
 rmvlib_update.sh will remove the source trees for RMAC, RLN, JLIBC and RMVLIB, download and rebuild them with out removing any other files/folders you may have added to the default toolchain directory, located in your home folder in the Jaguar folder.  Make sure you download the latest copy of this repository, as the update may rely on files in the assets directory of this repository.
 
