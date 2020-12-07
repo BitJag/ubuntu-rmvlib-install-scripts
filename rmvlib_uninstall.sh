@@ -29,5 +29,9 @@ sudo rm -v /usr/bin/jcp
 sudo rm -v /usr/bin/virtualjaguar
 sudo rm -v /usr/bin/lz77
 
+echo "\n${RED}Removing JCP rules file${NC}\n"
+
+sudo rm -v /etc/udev/rules.d/64-skunk.rules
+
 echo "\n${RED}Uninstall Finished${NC}\n"
 

@@ -95,7 +95,7 @@ echo "\n"
 sleep 1
 cd ./jcp
 make
-sudo sh -c \"echo 'SUBSYSTEM==\"usb\", ATTRS{idProduct}==\"7200\", ATTRS{idVendor}==\"04b4\", MODE=\"0666\"' >> /etc/udev/rules.d/64-skunk.rules\" #allows jcp to run without sudo
+sudo bash -c 'echo "SUBSYSTEM==\"usb\", ATTRS{idProduct}==\"7200\", ATTRS{idVendor}==\"04b4\", MODE=\"0666\"" >> /etc/udev/rules.d/64-skunk.rules' #allows jcp to run without sudo
 cd ..
 
 
