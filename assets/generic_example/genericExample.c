@@ -20,7 +20,7 @@ int main () {
     int freq = 16000;
     freq = init_sound_driver(freq);
     
-    FILE *console = open_console(d,8,16,0);
+    FILE *console = open_custom_console(d,8,16,45,40,4,0);
     
     show_display(d);
     
