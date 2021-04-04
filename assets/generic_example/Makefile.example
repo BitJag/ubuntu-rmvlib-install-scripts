@@ -36,6 +36,9 @@ debug: $(PROJECT).cof
 skunk: $(PROJECT).cof
 	$(JCP) $(PROJECT).cof
 
+vj: $(PROJECT).cof
+	$(VJ) -a $(PROJECT).cof
+
 reset:
 	$(JCP) -r
 
