@@ -2,10 +2,12 @@
  
 RED='\033[0;31m'
 NC='\033[0m' # No Color
+INSTALLDIRECTORYNAME='Jaguar'
+INSTALLPATH="/home/$USER/$INSTALLDIRECTORYNAME"
 
 echo "\n${RED}Removing Jaguar Folder in Home Directory${NC}\n"
 
-sudo rm -r $HOME/Jaguar
+sudo rm -r $INSTALLPATH
 
 echo "\n${RED}Removing JAGPATH Environoment Variable${NC}\n"
 
