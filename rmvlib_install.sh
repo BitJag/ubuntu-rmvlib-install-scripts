@@ -19,6 +19,7 @@ sudo apt-get install -y cross-mint-essential
 echo  "\n${RED}Adding Tools Directory${NC}\n"
 
 mkdir -vp $INSTALLPATH
+mkdir -vp $INSTALLPATH/bin
 mkdir -vp $INSTALLPATH/example_programs
 mkdir -vp $INSTALLPATH/lib
 mkdir -vp $INSTALLPATH/lib/lib
@@ -47,19 +48,19 @@ echo "${RED}\n\nBegin Building sources\n\n${NC}"
 echo  "\n${RED}Building RMAC${NC}\n"
 cd rmac
 make
+cp -vr rmac $INSTALLPATH/bin/mac #renaming to make more compatible with sebs makefiles
 cd $INSTALLPATH/src
 
 #patching and building rln
 echo  "\n${RED}Building RLN${NC}\n"
 cd rln
 make
+cp -vr rln $INSTALLPATH/bin/aln #renaming to make more compatible with sebs makefiles
 cd $INSTALLPATH/src
 
 #modify and build jlibc
 echo  "\n${RED}Building JLIBC${NC}\n"
 cd jlibc
-sed -i '/MADMAC=/c\MADMAC=$(JAGPATH)/src/rmac/rmac' Makefile.config #change makefile.config to point to our new rmac
-sed -i '/OSUBDIRS=/c\OSUBDIRS=ctype' Makefile #don't build documentation
 make
 make install
 cd $INSTALLPATH/src
@@ -67,9 +68,6 @@ cd $INSTALLPATH/src
 #modify and build rmvlib
 echo  "\n${RED}Building RMVLIB${NC}\n"
 cd rmvlib
-#change makefiles
-sed -i '/MADMAC=/c\MADMAC=$(JAGPATH)/src/rmac/rmac' Makefile.config #change makefile.config to point to our new rmac
-sed -i '/OSUBDIRS=/c\OSUBDIRS=' Makefile #don't build documentation
 make
 make install
 cd $INSTALLPATH/src 
@@ -77,7 +75,7 @@ cd $INSTALLPATH/src
 #copy libgcc.a from m68k-mint-atari tools
 echo  "\n${RED}copy libgcc.a from m68k-mint-atari tools into lib folder${NC}\n"
 cd $INSTALLPATH/lib/lib
-cp -v /usr/lib/gcc/m68k-atari-mint/4.6.4/libgcc.a ./
+find /usr/lib/gcc/m68k-atari-mint/ -type f -name "libgcc.a" -exec cp {} ./ \;
 cd $INSTALLPATH
 
 echo  "\n${RED}copy example program${NC}\n"

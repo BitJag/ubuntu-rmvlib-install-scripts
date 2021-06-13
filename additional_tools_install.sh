@@ -3,6 +3,8 @@
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 TMPDIRECTORY=/tmp
+INSTALLDIRECTORYNAME='Jaguar'
+INSTALLPATH="/home/$USER/$INSTALLDIRECTORYNAME"
 
 
 echo "\n"
@@ -139,10 +141,10 @@ touch ./bin/unlink_binaries.sh
 
 echo "#!/bin/bash" >> ./bin/link_binaries.sh
 
-echo "sudo ln -s $HOME/Jaguar/bin/virtualjaguar /usr/bin/virtualjaguar" >> ./bin/link_binaries.sh
-echo "sudo ln -s $HOME/Jaguar/bin/jcp /usr/bin/jcp" >> ./bin/link_binaries.sh
-echo "sudo ln -s $HOME/Jaguar/bin/lz77 /usr/bin/lz77" >> ./bin/link_binaries.sh
-echo "sudo ln -s $HOME/Jaguar/bin/jag-image-converter /usr/bin/jag-image-converter" >> ./bin/link_binaries.sh
+echo "sudo ln -s $INSTALLPATH/bin/virtualjaguar /usr/bin/virtualjaguar" >> ./bin/link_binaries.sh
+echo "sudo ln -s $INSTALLPATH/bin/jcp /usr/bin/jcp" >> ./bin/link_binaries.sh
+echo "sudo ln -s $INSTALLPATH/bin/lz77 /usr/bin/lz77" >> ./bin/link_binaries.sh
+echo "sudo ln -s $INSTALLPATH/bin/jag-image-converter /usr/bin/jag-image-converter" >> ./bin/link_binaries.sh
 echo "sudo chmod +x /usr/bin/virtualjaguar" >> ./bin/link_binaries.sh
 echo "sudo chmod +x /usr/bin/jcp" >> ./bin/link_binaries.sh
 #add rules file that allows the user to invoke jcp without sudo/root permissions.  Confirmed to work with v2 skunkboards and SillyVenture skunkboards
@@ -171,11 +173,11 @@ sudo rm -r ./converter/
 
 #copy binaries and sources to rmac/rln/jlibc/rmvlib toolchain Jaguar directory in the users home directory
 echo "\n"
-echo "${RED}Copy bin folder with included binaries to toolchain directory $HOME/Jaguar${NC}\n"
+echo "${RED}Copy bin folder with included binaries to toolchain directory $INSTALLPATH${NC}\n"
 echo "\n"
 
-cp -ur ./bin/ $HOME/Jaguar
-cp -ur ./src/ $HOME/Jaguar
+cp -ur ./bin/ $INSTALLPATH/
+cp -ur ./src/ $INSTALLPATH/
 
 
 #backout and delete temp directory
@@ -193,5 +195,5 @@ echo "\n"
 sudo apt-get remove -y libsdl1.2-dev qt5-qmake qt5-default libusb++-dev ocaml* libcamlimages-ocaml* 
 
 echo "\n"
-echo "${RED}Finished!${NC} \n\nBinaries are located in your home directory at ${RED}$HOME/Jaguar/bin${NC} directory. \nThese binaries are currently not setup to be envoked by name from a terminal.  Navigate to $HOME/Jaguar/bin to run a script to enable the user to envoke each binary from a terminal without the need of a filepath to the binary.${NC}\n"
+echo "${RED}Finished!${NC} \n\nBinaries are located in your home directory at ${RED}$INSTALLPATH/bin${NC} directory. \nThese binaries are currently not setup to be envoked by name from a terminal.  Navigate to $INSTALLPATH/bin to run a script to enable the user to envoke each binary from a terminal without the need of a filepath to the binary.${NC}\n"
 
