@@ -27,7 +27,7 @@ echo "\n"
 echo "${RED}Adding necessary packages for binary building.${NC}\n"
 echo "\n"
 
-sudo apt-get install -y make git unzip libsdl1.2-dev qt5-qmake qt5-default qtchooser qtbase5-dev-tools libusb-dev  
+sudo apt-get install -y make git unzip libsdl1.2-dev qt5-qmake qt5-default qtchooser qtbase5-dev-tools libusb-dev libusb-0.1-4  
 
 #ocaml ocaml-base ocaml-libs ocamlbuild ocaml-findlib libcamlimages-ocaml-dev
 
