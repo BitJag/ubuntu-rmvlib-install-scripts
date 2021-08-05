@@ -75,7 +75,7 @@ cd $INSTALLPATH/src
 #copy libgcc.a from m68k-mint-atari tools
 echo  "\n${RED}copy libgcc.a from m68k-mint-atari tools into lib folder${NC}\n"
 cd $INSTALLPATH/lib/lib
-find /usr/lib/gcc/m68k-atari-mint/ -type f -name "libgcc.a" -exec cp {} ./ \;
+cp /usr/lib/gcc/m68k-atari-mint/**/libgcc.a ./
 cd $INSTALLPATH
 
 echo  "\n${RED}copy example program${NC}\n"
