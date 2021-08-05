@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 INSTALLDIRECTORYNAME='Jaguar'
 INSTALLPATH="/home/$USER/$INSTALLDIRECTORYNAME"
 
-sudo apt install -y git make build-essential
+sudo apt install -y git make build-essential doxygen
 
 #add m68k-mint-atari cross compiler from ppa for Ubuntu installs
 echo "\n${RED}Adding Repository For Cross Compiler Tools for Ubuntu Installation${NC}\n"
