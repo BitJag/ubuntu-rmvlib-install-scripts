@@ -15,7 +15,7 @@ int main () {
         d-> y = 7;
         
     void *gpu_addr = &_GPU_FREE_RAM;
-    init_lz77(gpu_addr);
+    lz77_init(gpu_addr);
     
     int freq = 16000;
     freq = init_sound_driver(freq);
@@ -41,20 +41,20 @@ int main () {
     */
     //load 8bit sprite
     phrase *gfx8bitData = malloc(96*145);
-    lz77_unpack(&gfx8bit, (uint8_t*)gfx8bitData);
+    lz77_unpack(gpu_addr, &gfx8bit, (uint8_t*)gfx8bitData);
     sprite *gfx8bitsprite = new_sprite(96, 145, 112, 54, DEPTH8, gfx8bitData);
     attach_sprite_to_display_at_layer(gfx8bitsprite, d, 1);
     
     //load 4bit sprite
     phrase *gfx4bitData = malloc((96/2)*145);
-    lz77_unpack(&gfx4bit, (uint8_t*)gfx4bitData);
+    lz77_unpack(gpu_addr, &gfx4bit, (uint8_t*)gfx4bitData);
     sprite *gfx4bitsprite = new_sprite(96, 145, 216, 54, DEPTH4, gfx4bitData);
     attach_sprite_to_display_at_layer(gfx4bitsprite, d, 1);
     /*
     */
     //load music
     char *songData = malloc(sizeof(char)*109578);
-    lz77_unpack(&song, (uint8_t*)songData);
+    lz77_unpack(gpu_addr, &song, (uint8_t*)songData);
     
     
     //start music
