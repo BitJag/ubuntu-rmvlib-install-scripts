@@ -27,7 +27,16 @@ echo "\n"
 echo "${RED}Adding necessary packages for binary building.${NC}\n"
 echo "\n"
 
-sudo apt-get install -y make git unzip libsdl1.2-dev qt5-qmake qt5-default qtchooser qtbase5-dev-tools libusb-dev libusb-0.1-4  
+sudo apt-get install -y make  
+sudo apt-get install -y git
+sudo apt-get install -y unzip
+sudo apt-get install -y libsdl1.2-dev
+sudo apt-get install -y qt5-qmake
+sudo apt-get install -y qt5-default
+sudo apt-get install -y qtchooser
+sudo apt-get install -y qtbase5-dev-tools
+sudo apt-get install -y libusb-dev
+sudo apt-get install -y libusb-0.1-4
 
 #ocaml ocaml-base ocaml-libs ocamlbuild ocaml-findlib libcamlimages-ocaml-dev
 
@@ -111,17 +120,6 @@ cd lz77/
 gcc lz77.c -o lz77 -O2
 cd ..
 
-
-#jag-image-converter
-echo "\n"
-echo "${RED}Building jag-image-converter.${NC}\n"
-echo "\n"
-sleep 1
-# cd converter
-# ocamlbuild -use-ocamlfind -package camlimages converter.native
-# cd ..
-
-
 #copy build binaries to bin folder
 echo "\n"
 echo "${RED}Copy built binaries to bin folder.${NC}\n"
@@ -193,7 +191,7 @@ echo "\n"
 echo "${RED}Remove uneeded packages.${NC}\n"
 echo "\n"
 
-sudo apt-get remove -y libsdl1.2-dev qt5-qmake qt5-default libusb++-dev ocaml* libcamlimages-ocaml* 
+sudo apt-get remove -y libsdl1.2-dev qt5-qmake qt5-default
 
 echo "\n"
 echo "${RED}Finished!${NC} \n\nBinaries are located in your home directory at ${RED}$INSTALLPATH/bin${NC} directory. \nThese binaries are currently not setup to be envoked by name from a terminal.  Navigate to $INSTALLPATH/bin to run a script to enable the user to envoke each binary from a terminal without the need of a filepath to the binary.${NC}\n"
