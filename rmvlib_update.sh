@@ -33,8 +33,8 @@ cd $JAGPATH/src
 
 git clone http://shamusworld.gotdns.org/git/rmac
 git clone http://shamusworld.gotdns.org/git/rln
-git clone https://github.com/sbriais/jlibc.git
-git clone https://github.com/sbriais/rmvlib.git
+git clone https://github.com/theRemovers/jlibc.git
+git clone https://github.com/theRemovers/rmvlib.git
 
 echo "${RED}\n\nBegin Building sources\n\n${NC}"
 
