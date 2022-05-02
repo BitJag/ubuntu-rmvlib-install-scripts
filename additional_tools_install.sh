@@ -37,8 +37,10 @@ sudo apt-get install -y qtchooser
 sudo apt-get install -y qtbase5-dev-tools
 sudo apt-get install -y libusb-dev
 sudo apt-get install -y libusb-0.1-4
+sudo apt-get install -y python3
 
-#ocaml ocaml-base ocaml-libs ocamlbuild ocaml-findlib libcamlimages-ocaml-dev
+#setup python3 to be the version of python with highest priority.  jconverter/jag-image-converter requires python3 or higher to execute.
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 99
 
 
 echo "\n"
@@ -77,10 +79,7 @@ unzip lz77_v13.zip
 mv -v ./lz77_v13.zip ./src/other_binaries
 
 #jag-image-converter
-git clone https://github.com/sbriais/jconverter.git
-rm -rv ./jconverter/*.tar*
-rm -rv ./jconverter/*.zip
-rm -rv ./jconverter/binaries/windowsXP/
+git clone https://github.com/theRemovers/jconverter.git
 
 
 
@@ -128,7 +127,8 @@ echo "\n"
 cp -v ./virtualjaguar/virtualjaguar ./bin/
 cp -v ./jcp/jcp ./bin/
 cp -v ./lz77/lz77 ./bin/
-cp -v ./jconverter/binaries/linux/converter.opt ./bin/jag-image-converter
+cp -v ./jconverter/converter.py ./bin/
+cp -v ./jconverter/rgb2cry.py ./bin/
 
 #make binary linking/unlinking scripts
 echo "\n"
@@ -143,7 +143,7 @@ echo "#!/bin/bash" >> ./bin/link_binaries.sh
 echo "sudo ln -s $INSTALLPATH/bin/virtualjaguar /usr/bin/virtualjaguar" >> ./bin/link_binaries.sh
 echo "sudo ln -s $INSTALLPATH/bin/jcp /usr/bin/jcp" >> ./bin/link_binaries.sh
 echo "sudo ln -s $INSTALLPATH/bin/lz77 /usr/bin/lz77" >> ./bin/link_binaries.sh
-echo "sudo ln -s $INSTALLPATH/bin/jag-image-converter /usr/bin/jag-image-converter" >> ./bin/link_binaries.sh
+echo "sudo ln -s $INSTALLPATH/bin/converter.py /usr/bin/jag-image-converter" >> ./bin/link_binaries.sh
 echo "sudo chmod +x /usr/bin/virtualjaguar" >> ./bin/link_binaries.sh
 echo "sudo chmod +x /usr/bin/jcp" >> ./bin/link_binaries.sh
 #add rules file that allows the user to invoke jcp without sudo/root permissions.  Confirmed to work with v2 skunkboards and SillyVenture skunkboards
@@ -167,7 +167,7 @@ echo "\n"
 sudo rm -r ./virtualjaguar/
 sudo rm -r ./lz77/
 sudo rm -r ./jcp/
-sudo rm -r ./converter/
+sudo rm -r ./jconverter/
 
 
 #copy binaries and sources to rmac/rln/jlibc/rmvlib toolchain Jaguar directory in the users home directory
