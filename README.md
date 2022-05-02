@@ -34,12 +34,12 @@ source: http://shamusworld.gotdns.org/git/rln
 ### JLIBC
 The Remover's standard C library.
 
-source: https://github.com/sbriais/jlibc
+source: https://github.com/theRemovers/jlibc
 
 ### RMVLIB
 The Remover's C library for C functions specific to Atari Jaguar developement.
 
-source: https://github.com/sbriais/rmvlib
+source: https://github.com/theRemovers/rmvlib
 
 ________________
 
