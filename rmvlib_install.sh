@@ -39,8 +39,8 @@ cd $INSTALLPATH/src
 git clone http://shamusworld.gotdns.org/git/rmac
 git clone http://shamusworld.gotdns.org/git/rln
 echo  "\n${RED}Downloading jlibc/rmvlib Libraries From GIT Repositories${NC}\n"
-git clone https://github.com/sbriais/jlibc.git
-git clone https://github.com/sbriais/rmvlib.git
+git clone https://github.com/theRemovers/jlibc.git
+git clone https://github.com/theRemovers/rmvlib.git
 
 echo "${RED}\n\nBegin Building sources\n\n${NC}"
 

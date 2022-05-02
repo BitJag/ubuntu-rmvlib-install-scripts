@@ -17,15 +17,11 @@ sudo sed -i '/Jaguar/d' /etc/environment
 echo "\n${RED}Removing Cross Tools and PPA From source.list${NC}\n"
 
 sudo apt-get remove -y --purge gcc-m68k-atari-mint
-sudo apt-get autoremove -y
 sudo add-apt-repository -y --remove ppa:vriviere/ppa
 sudo apt-get update -y
 
 echo "\n${RED}Removing Symbolic Links to JAGPTAH/bin Executables${NC}\n"
 
-
-sudo rm -v /usr/bin/m68k-atari-mint-gcc
-sudo rm -v /usr/bin/m68k-atari-mint-ar
 sudo rm -v /usr/bin/jag-image-converter
 sudo rm -v /usr/bin/jcp
 sudo rm -v /usr/bin/virtualjaguar
