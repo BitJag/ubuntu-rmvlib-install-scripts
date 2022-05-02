@@ -44,7 +44,7 @@ source: https://github.com/sbriais/rmvlib
 ________________
 
 ## Requirements
-Linux with an internet connection and access to the Ubuntu repositories using apt/apt-get. This script has only been tested on Kubuntu 20.04 (9/2/2020).  Again, if you have access to the Ubuntu repositores there shouldn't be any issues accessing the packages needed (barring any future updates to necessary packages that could potential break this script).
+Linux with an internet connection and access to the Ubuntu repositories using apt/apt-get. This script has only been tested on Kubuntu 20.04 LTS (5/2/2022) & Kubuntu 22.04 LTS (5/2/2022).  Again, if you have access to the Ubuntu repositores there shouldn't be any issues accessing the packages needed (barring any future code or name updates/changes to necessary packages that could potentially break this script).
 
 If you are on another non-buntu distribution, you can attempt to manually installing the needed packages. Open up the *rmvlib_installer.sh* script in a text editor and refer to any lines that invoke *apt-get*.
 
