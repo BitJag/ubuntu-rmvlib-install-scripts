@@ -36,8 +36,8 @@ debug: $(PROJECT).cof
 skunk: $(PROJECT).cof
 	$(JCP) $(PROJECT).cof
 
-vj: $(PROJECT).cof
-	$(VJ) -a $(PROJECT).cof
+emulator: $(PROJECT).cof
+	$(EMU) $(PROJECT).cof
 
 reset:
 	$(JCP) -r
