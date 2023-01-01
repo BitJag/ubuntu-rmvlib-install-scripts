@@ -98,12 +98,12 @@ ________________
 This script installs additional binaries to accomadate Atari Jaguar development on Linux.  **This script is meant to be run after the rmac/jlinker/jlibc/rmvlib installation script and will fail otherwise**.
 ________________
 ## Included Applications
-The following apps will be built and installed to **<user's home folder>/Jaguar/bin/** directory in the current user's Home folder.
+The following apps will be built and installed to **<user's home folder>/Jaguar/bin/** directory in the current user's Home folder. This script will also install some additional packages to run the tools, most notably Wine to run the BigPEmu Atari Jaguar emulator.
 
-### virutaljaugar
+### BigPEmu
 Atari Jaguar emulator for running programs from your computer. 
 
-source: https://github.com/mirror/virtualjaguar
+source: https://www.richwhitehouse.com/jaguar/index.php?content=download
 
 ### jcp
 Used to control a Skunkboard cart. With a Skunkboard and jcp you can easily send your .cof or .rom files to your Jaguar to test on real hardware.

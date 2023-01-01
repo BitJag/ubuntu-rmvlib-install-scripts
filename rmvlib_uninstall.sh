@@ -16,15 +16,16 @@ sudo sed -i '/Jaguar/d' /etc/environment
 # old method of insatll cross compiler tools
 echo "\n${RED}Removing Cross Tools and PPA From source.list${NC}\n"
 
+sudo apt-get remove -y --purge cross-mint-essential
 sudo apt-get remove -y --purge gcc-m68k-atari-mint
 sudo add-apt-repository -y --remove ppa:vriviere/ppa
 sudo apt-get update -y
 
 echo "\n${RED}Removing Symbolic Links to JAGPTAH/bin Executables${NC}\n"
 
+sudo rm -v /usr/bin/bigpemu
 sudo rm -v /usr/bin/jag-image-converter
 sudo rm -v /usr/bin/jcp
-sudo rm -v /usr/bin/virtualjaguar
 sudo rm -v /usr/bin/lz77
 
 echo "\n${RED}Removing JCP rules file${NC}\n"
