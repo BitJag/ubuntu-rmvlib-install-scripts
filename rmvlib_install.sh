@@ -36,8 +36,8 @@ echo "export JAGPATH=$INSTALLPATH" | sudo tee -a /etc/environment
 
 echo  "\n${RED}Downloading RMAC/RLN Source From GIT Repositories${NC}\n"
 cd $INSTALLPATH/src
-git clone http://shamusworld.gotdns.org/git/rmac
-git clone http://shamusworld.gotdns.org/git/rln
+git clone http://tiddly.mooo.com:5000/rmac/rmac.git
+git clone http://tiddly.mooo.com:5000/rln/rln.git
 echo  "\n${RED}Downloading jlibc/rmvlib Libraries From GIT Repositories${NC}\n"
 git clone https://github.com/theRemovers/jlibc.git
 git clone https://github.com/theRemovers/rmvlib.git
