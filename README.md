@@ -24,12 +24,12 @@ source: http://vincent.riviere.free.fr/soft/m68k-atari-mint
 ### RMAC
 A modern version of Atari's old Madmac assembler. Created by Reboot.
 
-source: http://shamusworld.gotdns.org/git/rmac
+source: http://tiddly.mooo.com:5000/rmac/rmac
 
 ### RLN
 A modern version of Atari's old ALN linker. Created by Reboot.
 
-source: http://shamusworld.gotdns.org/git/rln
+source: http://tiddly.mooo.com:5000/rln/rln
 
 ### JLIBC
 The Remover's standard C library.
@@ -105,8 +105,13 @@ Atari Jaguar emulator for running programs from your computer.
 
 source: https://www.richwhitehouse.com/jaguar/index.php?content=download
 
+### open_jaggd
+Command line tool to control JagGD cart. 
+
+source: https://github.com/cubanismo/open_jaggd
+
 ### jcp
-Used to control a Skunkboard cart. With a Skunkboard and jcp you can easily send your .cof or .rom files to your Jaguar to test on real hardware.
+Command line tool to control Skunkboard cart.
 
 source: http://www.harmlesslion.com/zips/SKUNKBOARD_FULL_RELEASE.zip
 
