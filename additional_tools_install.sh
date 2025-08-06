@@ -15,6 +15,7 @@ echo "${RED}Installation requires access to the ubuntu repositories and an inter
 echo "${RED}Sources are pulled from the following locations on the web:\n"
 
 echo "${RED}BigPEmu${NC} - https://www.richwhitehouse.com/jaguar/index.php?content=download\n"
+echo "${RED}open_jaggd${NC} - https://github.com/cubanismo/open_jaggd\n"
 echo "${RED}JCP${NC} - http://www.harmlesslion.com/zips/SKUNKBOARD_FULL_RELEASE.zip\n"
 echo "${RED}Seb's Jaguar Image Converter${NC} - http://removers.free.fr/softs/archives/converter-0.1.9.tar.gz\n"
 echo "${RED}Ray's lz77 Packer${NC} - http://s390174849.online.de/ray.tscc.de/files/lz77_v13.zip\n${NC}"
@@ -30,6 +31,7 @@ echo "\n"
 sudo apt-get install -y make  
 sudo apt-get install -y git
 sudo apt-get install -y libusb-dev
+sudo apt-get install -y libusb-1.0-0-dev
 sudo apt-get install -y libusb-0.1-4
 sudo apt-get install -y python3
 
@@ -54,8 +56,11 @@ echo "\n"
 
 #bigPEmu
 wget https://www.richwhitehouse.com/jaguar/builds/BigPEmu_Linux64_v119.tar.gz
-tar -xvf ./BigPEmu_Linux64_v119.tar.gz -d ./bigpemu
+tar -xvf ./BigPEmu_Linux64_v119.tar.gz
 mv -v ./BigPEmu_Linux64_v119.tar.gz ./src/other_binaries
+
+#jaggd
+git clone https://github.com/cubanismo/open_jaggd.git
 
 #jcp
 wget http://www.harmlesslion.com/zips/SKUNKBOARD_FULL_RELEASE.zip
@@ -81,6 +86,17 @@ git clone https://github.com/theRemovers/jconverter.git
 echo "\n"
 echo "${RED}Begin building binaries.${NC}\n"
 
+#jaggd
+echo "\n"
+echo "${RED}Building jaggd.${NC}\n"
+echo "\n"
+sleep 1
+cd ./open_jaggd
+make
+sudo bash -c 'echo "SUBSYSTEM==\"usb\", ATTRS{idProduct}==\"800e\", ATTRS{idVendor}==\"03eb\", MODE=\"0666\"" >> /etc/udev/rules.d/65-jaggd.rules' #allows jaggd to run without sudo
+sudo udevadm control --reload-rules #alows jaggd to run without restart
+cd ..
+
 #jcp
 echo "\n"
 echo "${RED}Building jcp.${NC}\n"
@@ -91,7 +107,6 @@ make
 sudo bash -c 'echo "SUBSYSTEM==\"usb\", ATTRS{idProduct}==\"7200\", ATTRS{idVendor}==\"04b4\", MODE=\"0666\"" >> /etc/udev/rules.d/64-skunk.rules' #allows jcp to run without sudo
 sudo udevadm control --reload-rules #alows jcp to run without restart
 cd ..
-
 
 #lz77
 echo "\n"
@@ -107,8 +122,9 @@ echo "\n"
 echo "${RED}Copy built binaries to bin folder.${NC}\n"
 echo "\n"
 
+mkdir ./bin/
 mv -v ./bigpemu/ ./bin/
-cp -v ./virtualjaguar/virtualjaguar ./bin/
+cp -v ./open_jaggd/jaggd ./bin/
 cp -v ./jcp/jcp ./bin/
 cp -v ./lz77/lz77 ./bin/
 cp -v ./jconverter/converter.py ./bin/
@@ -124,11 +140,13 @@ touch ./bin/unlink_binaries.sh
 
 echo "#!/bin/bash" >> ./bin/link_binaries.sh
 
-echo "sudo ln -s $INSTALLPATH/bin/bigpemu /usr/bin/bigpemu" >> ./bin/link_binaries.sh
+echo "sudo ln -s $INSTALLPATH/bin/bigpemu/bigpemu /usr/bin/bigpemu" >> ./bin/link_binaries.sh
+echo "sudo ln -s $INSTALLPATH/bin/jaggd /usr/bin/jaggd" >> ./bin/link_binaries.sh
 echo "sudo ln -s $INSTALLPATH/bin/jcp /usr/bin/jcp" >> ./bin/link_binaries.sh
 echo "sudo ln -s $INSTALLPATH/bin/lz77 /usr/bin/lz77" >> ./bin/link_binaries.sh
 echo "sudo ln -s $INSTALLPATH/bin/converter.py /usr/bin/jag-image-converter" >> ./bin/link_binaries.sh
-echo "sudo chmod +x /usr/bin/bigpemu" >> ./bin/link_binaries.sh
+echo "sudo chmod +x /usr/bin/bigpemu/bigpemu" >> ./bin/link_binaries.sh
+echo "sudo chmod +x /usr/bin/jaggd" >> ./bin/link_binaries.sh
 echo "sudo chmod +x /usr/bin/jcp" >> ./bin/link_binaries.sh
 #add rules file that allows the user to invoke jcp without sudo/root permissions.  Confirmed to work with v2 skunkboards and SillyVenture skunkboards
 echo "sudo chmod +x /usr/bin/lz77" >> ./bin/link_binaries.sh
@@ -137,8 +155,8 @@ echo "sudo chmod +x /usr/bin/jag-image-converter" >> ./bin/link_binaries.sh
 echo "#!/bin/bash" >> ./bin/unlink_binaries.sh
 
 echo "sudo rm -v /usr/bin/bigpemu" >> ./bin/unlink_binaries.sh
+echo "sudo rm -v /usr/bin/jaggd" >> ./bin/unlink_binaries.sh
 echo "sudo rm -v /usr/bin/jcp" >> ./bin/unlink_binaries.sh
-echo "sudo rm -v /etc/udev/rules.d/64-skunk.rules" >> ./bin/unlink_binaries.sh
 echo "sudo rm -v /usr/bin/lz77" >> ./bin/unlink_binaries.sh
 echo "sudo rm -v /usr/bin/jag-image-converter" >> ./bin/unlink_binaries.sh
 
@@ -149,6 +167,7 @@ echo "${RED}Remove build directores.${NC}\n"
 echo "\n"
 
 sudo rm -r ./lz77/
+sudo rm -r ./open_jaggd/
 sudo rm -r ./jcp/
 sudo rm -r ./jconverter/
 
@@ -162,7 +181,7 @@ cp -ur ./bin/ $INSTALLPATH/
 cp -ur ./src/ $INSTALLPATH/
 
 
-#run linking script to add binaries to path so they can be envoked directly from the command line
+#run linking script to add binaries to path so they can be invoked directly from the command line
 echo "\n"
 echo "${RED}run linking script to add binarys to path so they can be envoked directly from the command line\n"
 echo "\n"
